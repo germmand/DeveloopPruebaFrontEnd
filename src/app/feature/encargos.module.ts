@@ -6,6 +6,8 @@ import { DashboardComponent } from '../components/dashboard/dashboard.component'
 
 import { ReactiveFormsModule } from '@angular/forms'; 
 
+import { DashboardService } from '../services/dashboard.service';
+
 @NgModule({
     imports: [
         CommonModule,
@@ -17,6 +19,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     ],
     declarations: [
         DashboardComponent
+    ],
+    providers: [
+        DashboardService
     ]
 })
 export class EncargosModule {

@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 
 import { FormGroup, FormControl } from '@angular/forms';
 
+import { DashboardService } from '../../services/dashboard.service';
+
 @Component({
     selector: 'app-dashboard',
     templateUrl: './dashboard.component.html',
@@ -11,7 +13,7 @@ export class DashboardComponent {
     private uploadFileForm: FormGroup;
     private excelFile: File;
 
-    constructor() {
+    constructor(private dashboardService: DashboardService) {
         
     }
 

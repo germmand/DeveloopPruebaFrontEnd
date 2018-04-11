@@ -4,10 +4,13 @@ import { SharedModule } from '../shared/shared.module';
 
 import { DashboardComponent } from '../components/dashboard/dashboard.component';
 
+import { ReactiveFormsModule } from '@angular/forms'; 
+
 @NgModule({
     imports: [
         CommonModule,
-        SharedModule
+        SharedModule,
+        ReactiveFormsModule
     ],
     exports: [
         DashboardComponent

@@ -10,6 +10,17 @@
     width: 50vh;
 }
 
-.footerButton {
+.full-width {
     width: 100%;
+}
+
+.hide {
+    display: none;
+}
+
+.inner-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
 }

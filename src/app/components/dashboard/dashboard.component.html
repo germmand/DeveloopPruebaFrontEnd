@@ -6,12 +6,19 @@
                     <span>Carga de Fichero Excel</span>
                 </mat-toolbar-row>
             </mat-toolbar>
-            <p>
-                The Shiba Inu is the smallest of the six original and distinct spitz breeds of dog from Japan.
-                A small, agile dog that copes very well with mountainous terrain, the Shiba Inu was originally
-                bred for hunting.
-            </p>
-            <button mat-raised-button color="primary" class="footerButton">Cargar Fichero</button>
+            <form [formGroup]="uploadFileForm">
+                <div class="full-width inner-container">
+                    <mat-form-field style="flex: 4;" class="full-width">
+                        <input matInput placeholder="Enlace del Fichero" type="text" formControlName="inputFilePath" (keydown)="OnKeyPress($event)"/>
+                    </mat-form-field>
+                    <input id="inputFile" type="file" class="hide" (change)="OnFileSelected($event.target.files)"/>
+                    <button id="pickFileButton" style="flex: 1; margin-left: 2%;" class="full-width" mat-raised-button (click)="OnSelectFile($event)">Fichero</button>
+                </div>
+                <mat-form-field class="full-width">
+                    <input matInput placeholder="Fila de comienzo" type="number" formControlName="starterRow"/>
+                </mat-form-field>
+                <button mat-raised-button color="primary" class="full-width">Procesar Fichero</button>
+            </form>
         </mat-card-content>
       </mat-card>
 </div>

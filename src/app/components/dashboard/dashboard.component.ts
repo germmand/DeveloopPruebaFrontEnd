@@ -22,6 +22,8 @@ export class DashboardComponent {
             inputFilePath: new FormControl(),
             starterRow: new FormControl()
         });
+
+        this.excelFile = null;
     }
 
     OnSelectFile(event: Event): void {
@@ -35,5 +37,18 @@ export class DashboardComponent {
 
     OnKeyPress(event: Event): void {
         event.preventDefault();
+    }
+
+    OnUploadFile(event: Event): void {
+        if(this.excelFile == null) {
+            console.log("You must select a file.");
+            return;
+        }
+
+        this.dashboardService.postFile(this.excelFile).subscribe(response => {
+            console.log(response);
+        }, error => {
+            console.log(error);
+        });
     }
 }

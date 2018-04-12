@@ -1,1 +1,30 @@
-<h2>Sup? :)</h2>
+<div class="container">
+    <div class="card">
+        <mat-card>
+            <mat-card-content>
+                <div class="innerHeaderContainer">
+                    <div class="inputCheckersContainer">
+                        <mat-form-field>
+                            <input matInput placeholder="Correctos" type="text" (keydown)="OnKeyPress($event)" value="0" [formControl]="correctInputControl"/>
+                        </mat-form-field>
+
+                        <mat-form-field>
+                            <input matInput placeholder="Incorrectos" type="text" (keydown)="OnKeyPress($event)" value="0" [formControl]="incorrectInputControl"/>
+                        </mat-form-field> 
+                    </div>
+                    <div>
+                        <button mat-raised-button color="primary" class="exportButton" (click)="OnExportData($event)">Exportar</button>
+                    </div>
+                </div>
+            </mat-card-content>
+        </mat-card>
+    </div>
+
+    <div class="card">
+        <mat-card>
+            <mat-card-content>
+                <span>Acá irá la rejilla.</span>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</div>

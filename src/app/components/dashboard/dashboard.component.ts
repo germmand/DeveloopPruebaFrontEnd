@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 
 import { FormGroup, FormControl } from '@angular/forms';
+import { MatSnackBar } from '@angular/material';
 
 import { DashboardService } from '../../services/dashboard.service';
 
@@ -13,7 +14,7 @@ export class DashboardComponent {
     private uploadFileForm: FormGroup;
     private excelFile: File;
 
-    constructor(private dashboardService: DashboardService) {
+    constructor(private dashboardService: DashboardService, private snackBar: MatSnackBar) {
         
     }
 
@@ -41,14 +42,18 @@ export class DashboardComponent {
 
     OnUploadFile(event: Event): void {
         if(this.excelFile == null) {
-            console.log("You must select a file.");
+            this.snackBar.open("Tienes que seleccionar un archivo Excel.", "Entendido.", {
+                duration: 2500
+            });
             return;
         }
 
         this.dashboardService.postFile(this.excelFile).subscribe(response => {
             console.log(response);
         }, error => {
-            console.log(error);
+            this.snackBar.open("Woops! Un error ha ocurrido. No te preocupes, estamos trabajando en ello.", "Entendido.", {
+                duration: 3500
+            });
         });
     }
 }

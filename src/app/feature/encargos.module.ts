@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { SharedModule } from '../shared/shared.module';
 
 import { DashboardComponent } from '../components/dashboard/dashboard.component';
+import { ExportboardComponent } from '../components/exportboard/exportboard.component';
 
 import { ReactiveFormsModule } from '@angular/forms'; 
 
@@ -15,10 +16,12 @@ import { DashboardService } from '../services/dashboard.service';
         ReactiveFormsModule
     ],
     exports: [
-        DashboardComponent
+        DashboardComponent,
+        ExportboardComponent
     ],
     declarations: [
-        DashboardComponent
+        DashboardComponent,
+        ExportboardComponent
     ],
     providers: [
         DashboardService

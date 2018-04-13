@@ -67,4 +67,8 @@ export class ExportboardComponent {
 
         return false;
     }
+
+    splitString(string: string, index: number): string[] {
+        return [string.substr(0, index), string.substr(index)];
+    }
 }

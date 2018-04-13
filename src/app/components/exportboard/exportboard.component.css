@@ -49,3 +49,13 @@
     overflow: auto;
     max-height: 500px;
 }
+
+.error-border {
+    border: 2px solid #A40505;
+    border-radius: 4px;
+    padding: 1vh;
+}
+
+.red-label {
+    color: #A40505;
+}

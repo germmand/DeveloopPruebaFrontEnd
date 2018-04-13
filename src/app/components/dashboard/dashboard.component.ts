@@ -2,10 +2,10 @@ import { Component } from '@angular/core';
 
 import { FormGroup, FormControl } from '@angular/forms';
 import { MatSnackBar } from '@angular/material';
+import { Router } from '@angular/router';
 
 import { DashboardService } from '../../services/dashboard.service';
-
-import { Router } from '@angular/router';
+import { ValidacionEncargoModel } from '../../models/ValidacionEncargoModel';
 
 @Component({
     selector: 'app-dashboard',
@@ -57,6 +57,7 @@ export class DashboardComponent {
         }
         
         this.dashboardService.postFile(this.excelFile).subscribe(response => {
+            let validacionEncargos: ValidacionEncargoModel[] = response["Encargos"];
             this.router.navigate(['/Exportboard']);
         }, error => {
             this.processingRequest = false;

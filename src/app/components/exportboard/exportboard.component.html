@@ -1,5 +1,5 @@
 <div class="container">
-    <div class="card">
+    <div class="upper-card">
         <mat-card>
             <mat-card-content>
                 <div class="innerHeaderContainer">
@@ -20,10 +20,69 @@
         </mat-card>
     </div>
 
-    <div class="card">
+    <div class="down-card">
         <mat-card>
             <mat-card-content>
-                <span>Acá irá la rejilla.</span>
+                <div class="mat-elevation-z8">
+                    <mat-table #table [dataSource]="exampleData">
+                        <!-- Columna Albaran -->
+                        <ng-container matColumnDef="albaran">
+                          <mat-header-cell *matHeaderCellDef> Albaran </mat-header-cell>
+                          <mat-cell *matCellDef="let element"> {{ element.Albaran }} </mat-cell>
+                        </ng-container>
+
+                        <!-- Columna Destinatario -->
+                        <ng-container matColumnDef="destinatario">
+                            <mat-header-cell *matHeaderCellDef> Destinatario </mat-header-cell>
+                            <mat-cell *matCellDef="let element"> {{ element.Destinatario }} </mat-cell>
+                          </ng-container>
+
+                          <!-- Columna Dirección -->
+                        <ng-container matColumnDef="direccion">
+                            <mat-header-cell *matHeaderCellDef> Dirección </mat-header-cell>
+                            <mat-cell *matCellDef="let element"> {{ element.Direccion }} </mat-cell>
+                          </ng-container>
+
+                          <!-- Columna Población -->
+                        <ng-container matColumnDef="poblacion">
+                            <mat-header-cell *matHeaderCellDef> Población </mat-header-cell>
+                            <mat-cell *matCellDef="let element"> {{ element.Poblacion }} </mat-cell>
+                          </ng-container>
+
+                          <!-- Columna CP -->
+                        <ng-container matColumnDef="cp">
+                            <mat-header-cell *matHeaderCellDef> CP </mat-header-cell>
+                            <mat-cell *matCellDef="let element"> {{ element.CP }} </mat-cell>
+                          </ng-container>
+
+                          <!-- Columna Provincia -->
+                        <ng-container matColumnDef="provincia">
+                            <mat-header-cell *matHeaderCellDef> Provincia </mat-header-cell>
+                            <mat-cell *matCellDef="let element"> {{ element.Provincia }} </mat-cell>
+                          </ng-container>
+
+                          <!-- Columna Teléfono -->
+                        <ng-container matColumnDef="telefono">
+                            <mat-header-cell *matHeaderCellDef> Teléfono </mat-header-cell>
+                            <mat-cell *matCellDef="let element"> {{ element.Telefono }} </mat-cell>
+                          </ng-container>
+
+                          <!-- Columna Observaciones -->
+                        <ng-container matColumnDef="observaciones">
+                            <mat-header-cell *matHeaderCellDef> Observaciones </mat-header-cell>
+                            <mat-cell *matCellDef="let element"> {{ element.Observaciones }} </mat-cell>
+                          </ng-container>
+
+                          <!-- Columna Fecha -->
+                        <ng-container matColumnDef="fecha">
+                            <mat-header-cell *matHeaderCellDef> Fecha </mat-header-cell>
+                            <mat-cell *matCellDef="let element"> {{ element.Fecha }} </mat-cell>
+                          </ng-container>
+                    
+                        <mat-header-row *matHeaderRowDef="tableColumnsNames"></mat-header-row>
+                        <mat-row *matRowDef="let row; columns: tableColumnsNames;"></mat-row>
+                      </mat-table>
+                </div>
             </mat-card-content>
         </mat-card>
     </div>

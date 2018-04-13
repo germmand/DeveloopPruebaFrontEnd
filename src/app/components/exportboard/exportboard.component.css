@@ -28,13 +28,24 @@
     align-items: center;
 }
 
-.card {
+.upper-card {
     margin-bottom: 2vh;
     margin-top: 2vh;
-    width: 60vh;
+    width: 70vh;
+}
+
+.down-card {
+    margin-bottom: 2vh;
+    margin-top: 2vh;
+    width: 140vh;
 }
 
 .exportButton {
     width: 70%;
     font-size: 16px;
+}
+
+.mat-table {
+    overflow: auto;
+    max-height: 500px;
 }

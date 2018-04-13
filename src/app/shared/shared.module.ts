@@ -6,6 +6,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatTableModule } from '@angular/material/table';
 
 @NgModule({
     imports: [
@@ -14,7 +15,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
         MatInputModule,
         MatCardModule,
         MatToolbarModule,
-        MatSnackBarModule
+        MatSnackBarModule,
+        MatTableModule
     ],
     exports: [
         MatButtonModule,
@@ -22,7 +24,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
         MatInputModule,
         MatCardModule,
         MatToolbarModule,
-        MatSnackBarModule
+        MatSnackBarModule,
+        MatTableModule
     ]
 })
 export class SharedModule {

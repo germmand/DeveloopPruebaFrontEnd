@@ -17,8 +17,10 @@
                 <mat-form-field class="full-width">
                     <input matInput placeholder="Fila de comienzo" type="number" formControlName="starterRow"/>
                 </mat-form-field>
-                <button mat-raised-button color="primary" class="full-width" (click)="OnUploadFile($event)">Procesar Fichero</button>
+                <button mat-raised-button color="primary" class="full-width" (click)="OnUploadFile($event)" [disabled]="processingRequest">Procesar Fichero</button>
             </form>
         </mat-card-content>
       </mat-card>
+
+      <mat-spinner diameter="65" *ngIf="processingRequest"></mat-spinner>
 </div>

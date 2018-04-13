@@ -5,6 +5,8 @@ import { MatSnackBar } from '@angular/material';
 
 import { DashboardService } from '../../services/dashboard.service';
 
+import { Router } from '@angular/router';
+
 @Component({
     selector: 'app-dashboard',
     templateUrl: './dashboard.component.html',
@@ -13,8 +15,9 @@ import { DashboardService } from '../../services/dashboard.service';
 export class DashboardComponent {
     private uploadFileForm: FormGroup;
     private excelFile: File;
+    private processingRequest: boolean;
 
-    constructor(private dashboardService: DashboardService, private snackBar: MatSnackBar) {
+    constructor(private dashboardService: DashboardService, private snackBar: MatSnackBar, private router: Router) {
         
     }
 
@@ -25,6 +28,7 @@ export class DashboardComponent {
         });
 
         this.excelFile = null;
+        this.processingRequest = false;
     }
 
     OnSelectFile(event: Event): void {
@@ -41,16 +45,21 @@ export class DashboardComponent {
     }
 
     OnUploadFile(event: Event): void {
+        this.processingRequest = true;
+
         if(this.excelFile == null) {
+            this.processingRequest = false;
             this.snackBar.open("Tienes que seleccionar un archivo Excel.", "Entendido.", {
                 duration: 2500
             });
+
             return;
         }
-
+        
         this.dashboardService.postFile(this.excelFile).subscribe(response => {
-            console.log(response);
+            this.router.navigate(['/Exportboard']);
         }, error => {
+            this.processingRequest = false;
             this.snackBar.open("Woops! Un error ha ocurrido. No te preocupes, estamos trabajando en ello.", "Entendido.", {
                 duration: 3500
             });

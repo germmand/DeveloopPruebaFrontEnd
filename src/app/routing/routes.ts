@@ -10,6 +10,6 @@ export const AppRoutes : Routes = [{
     component: ExportboardComponent
 }, {
     path: '',
-    redirectTo: '/Exportboard',
+    redirectTo: '/Dashboard',
     pathMatch: 'full'
 }];

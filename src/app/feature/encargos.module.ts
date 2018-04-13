@@ -6,6 +6,7 @@ import { DashboardComponent } from '../components/dashboard/dashboard.component'
 import { ExportboardComponent } from '../components/exportboard/exportboard.component';
 
 import { ReactiveFormsModule } from '@angular/forms'; 
+import { FormsModule } from '@angular/forms';
 
 import { DashboardService } from '../services/dashboard.service';
 import { SharedDataService } from '../services/shareddata.service';
@@ -14,7 +15,8 @@ import { SharedDataService } from '../services/shareddata.service';
     imports: [
         CommonModule,
         SharedModule,
-        ReactiveFormsModule
+        ReactiveFormsModule,
+        FormsModule
     ],
     exports: [
         DashboardComponent,

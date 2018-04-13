@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { EncargoModel } from '../../models/EncargosModel';
 import { SharedDataService } from '../../services/shareddata.service'; 
 import { ValidacionEncargoModel } from '../../models/ValidacionEncargoModel';
+import { EditRowModel } from '../../models/EditRowModel';
 
 @Component({
     selector: 'app-exportboard',
@@ -36,7 +37,10 @@ export class ExportboardComponent {
         }
 
         for(let i = 0; i < excelData.length; i++) {
-            this.gridData.push(excelData[i].Encargo);
+            let encargo: EncargoModel = excelData[i].Encargo;
+            encargo.EditRow = new EditRowModel();
+
+            this.gridData.push(encargo);
         }
     }
 
@@ -44,7 +48,11 @@ export class ExportboardComponent {
         event.preventDefault();
     }
 
-    OnExportData(event: Event) {
+    OnExportData(event: Event): void {
 
+    }
+
+    OnRowChange(element: EncargoModel) {
+        // Acá se hará la comprobación al backend.
     }
 }

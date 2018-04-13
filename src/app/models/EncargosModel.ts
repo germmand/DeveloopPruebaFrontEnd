@@ -1,3 +1,5 @@
+import { EditRowModel } from './EditRowModel';
+
 export class EncargoModel {
     public EncargoId: number;
     public Albaran: string;
@@ -9,4 +11,9 @@ export class EncargoModel {
     public Telefono: string;
     public Observaciones: string;
     public Fecha: string;
+    public EditRow: EditRowModel;
+
+    constructor() {
+        this.EditRow = new EditRowModel();
+    }
 };

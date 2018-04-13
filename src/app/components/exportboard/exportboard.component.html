@@ -28,55 +28,172 @@
                         <!-- Columna Albaran -->
                         <ng-container matColumnDef="albaran">
                           <mat-header-cell *matHeaderCellDef> Albaran </mat-header-cell>
-                          <mat-cell *matCellDef="let element"> {{ element.Albaran }} </mat-cell>
+                          <mat-cell *matCellDef="let element">
+                                <div (click)="element.EditRow.EditingAlbaran = true;" *ngIf="!element.EditRow.EditingAlbaran">
+                                    <label>{{ element.Albaran }}</label>
+                                </div>
+                                <div *ngIf="element.EditRow.EditingAlbaran">
+                                    <mat-form-field>
+                                        <input  matInput
+                                                type="text" 
+                                                [(ngModel)]="element.Albaran" 
+                                                (change)="element.EditRow.EditingAlbaran = false; OnRowChange(element);" 
+                                                (focusout)="element.EditRow.EditingAlbaran = false;"/>
+                                    </mat-form-field>
+                                </div>
+                          </mat-cell>
                         </ng-container>
 
                         <!-- Columna Destinatario -->
                         <ng-container matColumnDef="destinatario">
                             <mat-header-cell *matHeaderCellDef> Destinatario </mat-header-cell>
-                            <mat-cell *matCellDef="let element"> {{ element.Destinatario }} </mat-cell>
+                            <mat-cell *matCellDef="let element"> 
+                                <div (click)="element.EditRow.EditingDestinatario = true;" *ngIf="!element.EditRow.EditingDestinatario">
+                                    <label>{{ element.Destinatario }} </label>
+                                </div>
+                                <div *ngIf="element.EditRow.EditingDestinatario">
+                                    <mat-form-field>
+                                        <input  matInput 
+                                                type="text" 
+                                                [(ngModel)]="element.Destinatario" 
+                                                (change)="element.EditRow.EditingDestinatario = false; OnRowChange(element);"
+                                                (focusout)="element.EditRow.EditingDestinatario = false;"/>
+                                    </mat-form-field>
+                                </div>
+                            </mat-cell>
                           </ng-container>
 
                           <!-- Columna Dirección -->
                         <ng-container matColumnDef="direccion">
                             <mat-header-cell *matHeaderCellDef> Dirección </mat-header-cell>
-                            <mat-cell *matCellDef="let element"> {{ element.Direccion }} </mat-cell>
+                            <mat-cell *matCellDef="let element"> 
+                                <div (click)="element.EditRow.EditingDireccion = true;" *ngIf="!element.EditRow.EditingDireccion">
+                                    <label>{{ element.Direccion }} </label>
+                                </div>
+                                <div *ngIf="element.EditRow.EditingDireccion">
+                                    <mat-form-field>
+                                        <input  matInput 
+                                                type="text" 
+                                                [(ngModel)]="element.Direccion" 
+                                                (change)="element.EditRow.EditingDireccion = false; OnRowChange(element);"
+                                                (focusout)="element.EditRow.EditingDireccion = false;"/>
+                                    </mat-form-field>
+                                </div>
+                            </mat-cell>
                           </ng-container>
 
                           <!-- Columna Población -->
                         <ng-container matColumnDef="poblacion">
                             <mat-header-cell *matHeaderCellDef> Población </mat-header-cell>
-                            <mat-cell *matCellDef="let element"> {{ element.Poblacion }} </mat-cell>
+                            <mat-cell *matCellDef="let element"> 
+                                <div (click)="element.EditRow.EditingPoblacion = true;" *ngIf="!element.EditRow.EditingPoblacion">
+                                    <label>{{ element.Poblacion }} </label>
+                                </div>
+                                <div *ngIf="element.EditRow.EditingPoblacion">
+                                    <mat-form-field>
+                                        <input  matInput 
+                                                type="text" 
+                                                [(ngModel)]="element.Poblacion" 
+                                                (change)="element.EditRow.EditingPoblacion = false; OnRowChange(element);"
+                                                (focusout)="element.EditRow.EditingPoblacion = false;"/>
+                                    </mat-form-field>
+                                </div>
+                            </mat-cell>
                           </ng-container>
 
                           <!-- Columna CP -->
                         <ng-container matColumnDef="cp">
                             <mat-header-cell *matHeaderCellDef> CP </mat-header-cell>
-                            <mat-cell *matCellDef="let element"> {{ element.CP }} </mat-cell>
+                            <mat-cell *matCellDef="let element"> 
+                                <div (click)="element.EditRow.EditingCP = true;" *ngIf="!element.EditRow.EditingCP">
+                                    <label>{{ element.CP }} </label>
+                                </div>
+                                <div *ngIf="element.EditRow.EditingCP">
+                                    <mat-form-field>
+                                        <input  matInput 
+                                                type="text" 
+                                                [(ngModel)]="element.CP" 
+                                                (change)="element.EditRow.EditingCP = false; OnRowChange(element);"
+                                                (focusout)="element.EditRow.EditingCP = false;"/>
+                                    </mat-form-field>
+                                </div>
+                            </mat-cell>
                           </ng-container>
 
                           <!-- Columna Provincia -->
                         <ng-container matColumnDef="provincia">
                             <mat-header-cell *matHeaderCellDef> Provincia </mat-header-cell>
-                            <mat-cell *matCellDef="let element"> {{ element.Provincia }} </mat-cell>
+                            <mat-cell *matCellDef="let element"> 
+                                <div (click)="element.EditRow.EditingProvincia = true;" *ngIf="!element.EditRow.EditingProvincia">
+                                    <label>{{ element.Provincia }} </label>
+                                </div>
+                                <div *ngIf="element.EditRow.EditingProvincia">
+                                    <mat-form-field>
+                                        <input  matInput 
+                                                type="text" 
+                                                [(ngModel)]="element.Provincia" 
+                                                (change)="element.EditRow.EditingProvincia = false; OnRowChange(element);"
+                                                (focusout)="element.EditRow.EditingProvincia = false;"/>
+                                    </mat-form-field>
+                                </div>
+                            </mat-cell>
                           </ng-container>
 
                           <!-- Columna Teléfono -->
                         <ng-container matColumnDef="telefono">
                             <mat-header-cell *matHeaderCellDef> Teléfono </mat-header-cell>
-                            <mat-cell *matCellDef="let element"> {{ element.Telefono }} </mat-cell>
+                            <mat-cell *matCellDef="let element"> 
+                                <div (click)="element.EditRow.EditingTelefono = true;" *ngIf="!element.EditRow.EditingTelefono">
+                                    <label>{{ element.Telefono }} </label>
+                                </div>
+                                <div *ngIf="element.EditRow.EditingTelefono">
+                                    <mat-form-field>
+                                        <input  matInput 
+                                                type="text" 
+                                                [(ngModel)]="element.Telefono" 
+                                                (change)="element.EditRow.EditingTelefono = false; OnRowChange(element);"
+                                                (focusout)="element.EditRow.EditingTelefono = false;"/>
+                                    </mat-form-field>
+                                </div>
+                            </mat-cell>
                           </ng-container>
 
                           <!-- Columna Observaciones -->
                         <ng-container matColumnDef="observaciones">
                             <mat-header-cell *matHeaderCellDef> Observaciones </mat-header-cell>
-                            <mat-cell *matCellDef="let element"> {{ element.Observaciones }} </mat-cell>
+                            <mat-cell *matCellDef="let element"> 
+                                <div (click)="element.EditRow.EditingObservaciones = true;" *ngIf="!element.EditRow.EditingObservaciones">
+                                    <label>{{ element.Observaciones }} </label>
+                                </div>
+                                <div *ngIf="element.EditRow.EditingObservaciones">
+                                    <mat-form-field>
+                                        <input  matInput 
+                                                type="text" 
+                                                [(ngModel)]="element.Observaciones" 
+                                                (change)="element.EditRow.EditingObservaciones = false; OnRowChange(element);"
+                                                (focusout)="element.EditRow.EditingObservaciones = false;"/>
+                                    </mat-form-field>
+                                </div>
+                            </mat-cell>
                           </ng-container>
 
                           <!-- Columna Fecha -->
                         <ng-container matColumnDef="fecha">
                             <mat-header-cell *matHeaderCellDef> Fecha </mat-header-cell>
-                            <mat-cell *matCellDef="let element"> {{ element.Fecha }} </mat-cell>
+                            <mat-cell *matCellDef="let element"> 
+                                <div (click)="element.EditRow.EditingFecha = true;" *ngIf="!element.EditRow.EditingFecha">
+                                    <label>{{ element.Fecha }} </label>
+                                </div>
+                                <div *ngIf="element.EditRow.EditingFecha">
+                                    <mat-form-field>
+                                        <input  matInput 
+                                                type="text" 
+                                                [(ngModel)]="element.Fecha" 
+                                                (change)="element.EditRow.EditingFecha = false; OnRowChange(element);"
+                                                (focusout)="element.EditRow.EditingFecha = false;"/>
+                                    </mat-form-field>
+                                </div>
+                            </mat-cell>
                           </ng-container>
                     
                         <mat-header-row *matHeaderRowDef="tableColumnsNames"></mat-header-row>

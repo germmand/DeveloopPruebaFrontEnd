@@ -57,4 +57,14 @@ export class ExportboardComponent {
     OnRowChange(element: EncargoModel) {
         // Acá se hará la comprobación al backend.
     }
+
+    HasErrorOnProperty(element: EncargoModel, property: string) {
+        for(let i = 0; i < element.ValidationErrors.length; i++) {
+            if(element.ValidationErrors[i].PropertyName == property) {
+                return true;
+            }
+        }
+
+        return false;
+    }
 }

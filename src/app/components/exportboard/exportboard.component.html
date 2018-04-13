@@ -30,7 +30,12 @@
                           <mat-header-cell *matHeaderCellDef> Albaran </mat-header-cell>
                           <mat-cell *matCellDef="let element">
                                 <div (click)="element.EditRow.EditingAlbaran = true;" *ngIf="!element.EditRow.EditingAlbaran">
-                                    <label>{{ element.Albaran }}</label>
+                                    <div *ngIf="!HasErrorOnProperty(element, 'Albaran') else errorProperty">
+                                        <label>{{ element.Albaran }}</label>
+                                    </div>
+                                    <ng-template #errorProperty>
+                                        <label>Error</label>
+                                    </ng-template>
                                 </div>
                                 <div *ngIf="element.EditRow.EditingAlbaran">
                                     <mat-form-field>
@@ -49,7 +54,12 @@
                             <mat-header-cell *matHeaderCellDef> Destinatario </mat-header-cell>
                             <mat-cell *matCellDef="let element"> 
                                 <div (click)="element.EditRow.EditingDestinatario = true;" *ngIf="!element.EditRow.EditingDestinatario">
-                                    <label>{{ element.Destinatario }} </label>
+                                    <div *ngIf="!HasErrorOnProperty(element, 'Destinatario') else errorProperty">
+                                        <label>{{ element.Destinatario }}</label>
+                                    </div>
+                                    <ng-template #errorProperty>
+                                        <label>Error</label>
+                                    </ng-template>
                                 </div>
                                 <div *ngIf="element.EditRow.EditingDestinatario">
                                     <mat-form-field>
@@ -68,7 +78,12 @@
                             <mat-header-cell *matHeaderCellDef> Dirección </mat-header-cell>
                             <mat-cell *matCellDef="let element"> 
                                 <div (click)="element.EditRow.EditingDireccion = true;" *ngIf="!element.EditRow.EditingDireccion">
-                                    <label>{{ element.Direccion }} </label>
+                                    <div *ngIf="!HasErrorOnProperty(element, 'Direccion') else errorProperty">
+                                        <label>{{ element.Direccion }}</label>
+                                    </div>
+                                    <ng-template #errorProperty>
+                                        <label>Error</label>
+                                    </ng-template>
                                 </div>
                                 <div *ngIf="element.EditRow.EditingDireccion">
                                     <mat-form-field>
@@ -87,7 +102,12 @@
                             <mat-header-cell *matHeaderCellDef> Población </mat-header-cell>
                             <mat-cell *matCellDef="let element"> 
                                 <div (click)="element.EditRow.EditingPoblacion = true;" *ngIf="!element.EditRow.EditingPoblacion">
-                                    <label>{{ element.Poblacion }} </label>
+                                    <div *ngIf="!HasErrorOnProperty(element, 'Poblacion') else errorProperty">
+                                        <label>{{ element.Poblacion }}</label>
+                                    </div>
+                                    <ng-template #errorProperty>
+                                        <label>Error</label>
+                                    </ng-template>
                                 </div>
                                 <div *ngIf="element.EditRow.EditingPoblacion">
                                     <mat-form-field>
@@ -106,7 +126,12 @@
                             <mat-header-cell *matHeaderCellDef> CP </mat-header-cell>
                             <mat-cell *matCellDef="let element"> 
                                 <div (click)="element.EditRow.EditingCP = true;" *ngIf="!element.EditRow.EditingCP">
-                                    <label>{{ element.CP }} </label>
+                                    <div *ngIf="!HasErrorOnProperty(element, 'CP') else errorProperty">
+                                        <label>{{ element.CP }}</label>
+                                    </div>
+                                    <ng-template #errorProperty>
+                                        <label>Error</label>
+                                    </ng-template>
                                 </div>
                                 <div *ngIf="element.EditRow.EditingCP">
                                     <mat-form-field>
@@ -125,7 +150,12 @@
                             <mat-header-cell *matHeaderCellDef> Provincia </mat-header-cell>
                             <mat-cell *matCellDef="let element"> 
                                 <div (click)="element.EditRow.EditingProvincia = true;" *ngIf="!element.EditRow.EditingProvincia">
-                                    <label>{{ element.Provincia }} </label>
+                                    <div *ngIf="!HasErrorOnProperty(element, 'Provincia') else errorProperty">
+                                        <label>{{ element.Provincia }}</label>
+                                    </div>
+                                    <ng-template #errorProperty>
+                                        <label>Error</label>
+                                    </ng-template>
                                 </div>
                                 <div *ngIf="element.EditRow.EditingProvincia">
                                     <mat-form-field>
@@ -144,7 +174,12 @@
                             <mat-header-cell *matHeaderCellDef> Teléfono </mat-header-cell>
                             <mat-cell *matCellDef="let element"> 
                                 <div (click)="element.EditRow.EditingTelefono = true;" *ngIf="!element.EditRow.EditingTelefono">
-                                    <label>{{ element.Telefono }} </label>
+                                    <div *ngIf="!HasErrorOnProperty(element, 'Telefono') else errorProperty">
+                                        <label>{{ element.Telefono }}</label>
+                                    </div>
+                                    <ng-template #errorProperty>
+                                        <label>Error</label>
+                                    </ng-template>
                                 </div>
                                 <div *ngIf="element.EditRow.EditingTelefono">
                                     <mat-form-field>
@@ -163,7 +198,12 @@
                             <mat-header-cell *matHeaderCellDef> Observaciones </mat-header-cell>
                             <mat-cell *matCellDef="let element"> 
                                 <div (click)="element.EditRow.EditingObservaciones = true;" *ngIf="!element.EditRow.EditingObservaciones">
-                                    <label>{{ element.Observaciones }} </label>
+                                    <div *ngIf="!HasErrorOnProperty(element, 'Observaciones') else errorProperty">
+                                        <label>{{ element.Observaciones }}</label>
+                                    </div>
+                                    <ng-template #errorProperty>
+                                        <label>Error</label>
+                                    </ng-template>
                                 </div>
                                 <div *ngIf="element.EditRow.EditingObservaciones">
                                     <mat-form-field>
@@ -182,7 +222,12 @@
                             <mat-header-cell *matHeaderCellDef> Fecha </mat-header-cell>
                             <mat-cell *matCellDef="let element"> 
                                 <div (click)="element.EditRow.EditingFecha = true;" *ngIf="!element.EditRow.EditingFecha">
-                                    <label>{{ element.Fecha }} </label>
+                                    <div *ngIf="!HasErrorOnProperty(element, 'Fecha') else errorProperty">
+                                        <label>{{ element.Fecha }}</label>
+                                    </div>
+                                    <ng-template #errorProperty>
+                                        <label>Error</label>
+                                    </ng-template>
                                 </div>
                                 <div *ngIf="element.EditRow.EditingFecha">
                                     <mat-form-field>

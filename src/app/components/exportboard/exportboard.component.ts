@@ -38,7 +38,9 @@ export class ExportboardComponent {
 
         for(let i = 0; i < excelData.length; i++) {
             let encargo: EncargoModel = excelData[i].Encargo;
+
             encargo.EditRow = new EditRowModel();
+            encargo.ValidationErrors = excelData[i].ValidationErrors;
 
             this.gridData.push(encargo);
         }

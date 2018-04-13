@@ -1,4 +1,5 @@
 import { EditRowModel } from './EditRowModel';
+import { ErrorEncargoModel } from './ErrorEncargoModel';
 
 export class EncargoModel {
     public EncargoId: number;
@@ -12,6 +13,7 @@ export class EncargoModel {
     public Observaciones: string;
     public Fecha: string;
     public EditRow: EditRowModel;
+    public ValidationErrors: ErrorEncargoModel[];
 
     constructor() {
         this.EditRow = new EditRowModel();

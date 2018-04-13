@@ -5,6 +5,7 @@ import { MatSnackBar } from '@angular/material';
 import { Router } from '@angular/router';
 
 import { DashboardService } from '../../services/dashboard.service';
+import { SharedDataService } from '../../services/shareddata.service'; 
 import { ValidacionEncargoModel } from '../../models/ValidacionEncargoModel';
 
 @Component({
@@ -17,7 +18,10 @@ export class DashboardComponent {
     private excelFile: File;
     private processingRequest: boolean;
 
-    constructor(private dashboardService: DashboardService, private snackBar: MatSnackBar, private router: Router) {
+    constructor(private dashboardService: DashboardService, 
+                private snackBar: MatSnackBar, 
+                private router: Router, 
+                private sharedData : SharedDataService<ValidacionEncargoModel[]>) {
         
     }
 
@@ -58,6 +62,8 @@ export class DashboardComponent {
         
         this.dashboardService.postFile(this.excelFile).subscribe(response => {
             let validacionEncargos: ValidacionEncargoModel[] = response["Encargos"];
+            this.sharedData.putData(validacionEncargos);
+
             this.router.navigate(['/Exportboard']);
         }, error => {
             this.processingRequest = false;

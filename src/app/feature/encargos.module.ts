@@ -8,6 +8,7 @@ import { ExportboardComponent } from '../components/exportboard/exportboard.comp
 import { ReactiveFormsModule } from '@angular/forms'; 
 
 import { DashboardService } from '../services/dashboard.service';
+import { SharedDataService } from '../services/shareddata.service';
 
 @NgModule({
     imports: [
@@ -24,7 +25,8 @@ import { DashboardService } from '../services/dashboard.service';
         ExportboardComponent
     ],
     providers: [
-        DashboardService
+        DashboardService,
+        SharedDataService
     ]
 })
 export class EncargosModule {

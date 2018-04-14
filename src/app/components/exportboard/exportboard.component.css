@@ -37,7 +37,7 @@
 .down-card {
     margin-bottom: 2vh;
     margin-top: 2vh;
-    width: 140vh;
+    width: 90%;
 }
 
 .exportButton {
@@ -58,4 +58,9 @@
 
 .red-label {
     color: #A40505;
+}
+
+mat-cell, mat-header-cell {
+    margin-left: 15px;
+    margin-right: 15px;
 }

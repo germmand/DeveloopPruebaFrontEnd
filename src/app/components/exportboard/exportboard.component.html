@@ -34,7 +34,7 @@
                                         <label>{{ element.Albaran }}</label>
                                     </div>
                                     <ng-template #errorProperty>
-                                        <div class="error-border">
+                                        <div class="error-border" [matTooltip]="element.ValidationErrors[0].ErrorDescription" matTooltipPosition="above">
                                             <label>
                                                 <label>{{ splitString(element.Albaran, 10)[0] }}<label class="red-label">{{ splitString(element.Albaran, 10)[1] }}</label></label>
                                             </label>
@@ -62,7 +62,7 @@
                                         <label>{{ element.Destinatario }}</label>
                                     </div>
                                     <ng-template #errorProperty>
-                                        <div class="error-border">
+                                        <div class="error-border" [matTooltip]="element.ValidationErrors[0].ErrorDescription" matTooltipPosition="above">
                                             <label>
                                                 <label>{{ splitString(element.Destinatario, 28)[0] }}<label class="red-label">{{ splitString(element.Destinatario, 28)[1] }}</label></label>
                                             </label>
@@ -90,7 +90,7 @@
                                         <label>{{ element.Direccion }}</label>
                                     </div>
                                     <ng-template #errorProperty>
-                                        <div class="error-border">
+                                        <div class="error-border" [matTooltip]="element.ValidationErrors[0].ErrorDescription" matTooltipPosition="above">
                                             <label>
                                                 <label>{{ splitString(element.Direccion, 250)[0] }}<label class="red-label">{{ splitString(element.Direccion, 250)[1] }}</label></label>
                                             </label>
@@ -118,7 +118,7 @@
                                         <label>{{ element.Poblacion }}</label>
                                     </div>
                                     <ng-template #errorProperty>
-                                        <div class="error-border">
+                                        <div class="error-border" [matTooltip]="element.ValidationErrors[0].ErrorDescription" matTooltipPosition="above">
                                             <label>
                                                 <label>{{ splitString(element.Poblacion, 10)[0] }}<label class="red-label">{{ splitString(element.Poblacion, 10)[1] }}</label></label>
                                             </label>
@@ -146,7 +146,7 @@
                                         <label>{{ element.CP }}</label>
                                     </div>
                                     <ng-template #errorProperty>
-                                        <div class="error-border">
+                                        <div class="error-border" [matTooltip]="element.ValidationErrors[0].ErrorDescription" matTooltipPosition="above">
                                             <label>
                                                 <label>{{ splitString(element.CP, 5)[0] }}<label class="red-label">{{ splitString(element.CP, 5)[1] }}</label></label>
                                             </label>
@@ -174,7 +174,7 @@
                                         <label>{{ element.Provincia }}</label>
                                     </div>
                                     <ng-template #errorProperty>
-                                        <div class="error-border">
+                                        <div class="error-border" [matTooltip]="element.ValidationErrors[0].ErrorDescription" matTooltipPosition="above">
                                             <label>
                                                 <label>{{ splitString(element.Provincia, 20)[0] }}<label class="red-label">{{ splitString(element.Provincia, 20)[1] }}</label></label>
                                             </label>
@@ -202,7 +202,7 @@
                                         <label>{{ element.Telefono }}</label>
                                     </div>
                                     <ng-template #errorProperty>
-                                        <div class="error-border">
+                                        <div class="error-border" [matTooltip]="element.ValidationErrors[0].ErrorDescription" matTooltipPosition="above">
                                             <label>
                                                 <label>{{ splitString(element.Telefono, 10)[0] }}<label class="red-label">{{ splitString(element.Telfono, 10)[1] }}</label></label>
                                             </label>
@@ -230,7 +230,7 @@
                                         <label>{{ element.Observaciones }}</label>
                                     </div>
                                     <ng-template #errorProperty>
-                                        <div class="error-border">
+                                        <div class="error-border" [matTooltip]="element.ValidationErrors[0].ErrorDescription" matTooltipPosition="above">
                                             <label>
                                                 <label>{{ splitString(element.Observaciones, 500)[0] }}<label class="red-label">{{ splitString(element.Observaciones, 500)[1] }}</label></label>
                                             </label>
@@ -258,7 +258,7 @@
                                         <label>{{ element.Fecha }}</label>
                                     </div>
                                     <ng-template #errorProperty>
-                                        <div class="error-border">
+                                        <div class="error-border" [matTooltip]="element.ValidationErrors[0].ErrorDescription" matTooltipPosition="above">
                                             <label>
                                                 <label class="red-label">{{ element.Fecha }}</label>
                                             </label>

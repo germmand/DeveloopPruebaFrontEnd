@@ -68,7 +68,9 @@ export class ExportboardComponent {
         return false;
     }
 
-    splitString(string: string, index: number): string[] {
-        return [string.substr(0, index), string.substr(index)];
+    splitString(cadena: string, index: number): string[] {
+        if(cadena == null) return ["", ""];
+        
+        return cadena.length > index ? [cadena.substr(0, index), cadena.substr(index)] : [cadena, ""];
     }
 }

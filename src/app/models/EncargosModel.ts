@@ -2,6 +2,7 @@ import { EditRowModel } from './EditRowModel';
 import { ErrorEncargoModel } from './ErrorEncargoModel';
 
 export class EncargoModel {
+    public RowIndex: number;
     public EncargoId: number;
     public Albaran: string;
     public Destinatario: string;

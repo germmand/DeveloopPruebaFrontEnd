@@ -5,11 +5,11 @@
                 <div class="innerHeaderContainer">
                     <div class="inputCheckersContainer">
                         <mat-form-field>
-                            <input matInput placeholder="Correctos" type="text" (keydown)="OnKeyPress($event)" value="0" [formControl]="correctInputControl"/>
+                            <input matInput placeholder="Correctos" type="text" (keydown)="OnKeyPress($event)" [formControl]="correctInputControl"/>
                         </mat-form-field>
 
                         <mat-form-field>
-                            <input matInput placeholder="Incorrectos" type="text" (keydown)="OnKeyPress($event)" value="0" [formControl]="incorrectInputControl"/>
+                            <input matInput placeholder="Incorrectos" type="text" (keydown)="OnKeyPress($event)" [formControl]="incorrectInputControl"/>
                         </mat-form-field> 
                     </div>
                     <div>

@@ -26,13 +26,14 @@ export class ExportboardComponent {
     }
 
     ngOnInit() {
-        this.correctInputControl = new FormControl();
-        this.incorrectInputControl = new FormControl();
+        this.correctInputControl = new FormControl(0);
+        this.incorrectInputControl = new FormControl(0);
 
         this.tableColumnsNames = ["albaran", "destinatario", "direccion", "poblacion", "cp", "provincia", "telefono", "observaciones", "fecha"];
         
         let excelData: ValidacionEncargoModel[] = this.sharedData.fetchData();
         if(excelData == null) {
+            this.router.navigate(['/Dashboard']);
             return;
         }
 
@@ -41,9 +42,28 @@ export class ExportboardComponent {
 
             encargo.EditRow = new EditRowModel();
             encargo.ValidationErrors = excelData[i].ValidationErrors;
+            encargo.RowIndex = i;
 
             this.gridData.push(encargo);
         }
+
+        this.computeCorrectsAndIncorrects();
+    }
+
+    computeCorrectsAndIncorrects(): void {
+        let corrects: number = 0;
+        let incorrects: number = 0;
+
+        for(let i = 0; i < this.gridData.length; i++) {
+            let currentErrors = this.gridData[i].ValidationErrors.length;
+            corrects += 9 - currentErrors;
+            incorrects += currentErrors;
+        }
+
+        console.log(corrects + " - " + incorrects);
+
+        this.correctInputControl.setValue(corrects);
+        this.incorrectInputControl.setValue(incorrects);
     }
 
     OnKeyPress(event: Event): void {

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormControl } from '@angular/forms';
 
 import { Router } from '@angular/router'; 
+import { MatSnackBar } from '@angular/material';
 
 import { EncargoModel } from '../../models/EncargosModel';
 import { SharedDataService } from '../../services/shareddata.service'; 
@@ -21,6 +22,7 @@ export class ExportboardComponent {
     private gridData: EncargoModel[];
 
     constructor(private router: Router, 
+                private snackBar: MatSnackBar,
                 private sharedData: SharedDataService<ValidacionEncargoModel[]>) {
         this.gridData = [];
     }
@@ -71,7 +73,13 @@ export class ExportboardComponent {
     }
 
     OnExportData(event: Event): void {
+        if(this.incorrectInputControl.value != 0) {
+            this.snackBar.open("Todos los errores deben corregirse antes de exportar.", "Entendido.", {
+                duration: 2500
+            });
 
+            return;
+        }
     }
 
     OnRowChange(element: EncargoModel) {

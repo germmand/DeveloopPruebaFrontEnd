@@ -33,6 +33,7 @@ export class DashboardComponent {
 
         this.excelFile = null;
         this.processingRequest = false;
+        this.uploadFileForm.controls["starterRow"].setValue(0);
     }
 
     OnSelectFile(event: Event): void {
@@ -60,16 +61,28 @@ export class DashboardComponent {
             return;
         }
         
-        this.dashboardService.postFile(this.excelFile).subscribe(response => {
+        this.dashboardService.postFile(this.excelFile, this.uploadFileForm.controls["starterRow"].value).subscribe(response => {
             let validacionEncargos: ValidacionEncargoModel[] = response["Encargos"];
             this.sharedData.putData(validacionEncargos);
 
             this.router.navigate(['/Exportboard']);
-        }, error => {
+        }, errorResponse => {
+            switch(errorResponse.status) {
+                case 400: 
+                    this.snackBar.open(errorResponse.error.Message, "Entendido.", {
+                        duration: 3500
+                    });
+                    break;
+                case 0:
+                    // Éste caso se ejecuta cuando el servidor está apagado.
+                    this.snackBar.open("Woops! Un error ha ocurrido. No te preocupes, estamos trabajando en ello.", "Entendido.", {
+                        duration: 3500
+                    });
+                    break;
+            }
+
             this.processingRequest = false;
-            this.snackBar.open("Woops! Un error ha ocurrido. No te preocupes, estamos trabajando en ello.", "Entendido.", {
-                duration: 3500
-            });
         });
+
     }
 }

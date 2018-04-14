@@ -11,7 +11,7 @@ export class DashboardService {
 
     }
 
-    postFile(excelFile: File): Observable<Object> {
+    postFile(excelFile: File, starterRow: number): Observable<Object> {
         const httpOptions = {
             headers: new HttpHeaders({
                 "Accept": "application/json"
@@ -21,6 +21,6 @@ export class DashboardService {
         let formData: FormData = new FormData();
         formData.append("excelFile", excelFile);
 
-        return this.http.post(WebApiData.getFullPath("api/Encargos/UploadFile"), formData, httpOptions);
+        return this.http.post(WebApiData.getFullPath("api/Encargos/UploadFile?rowIndex=" + starterRow), formData, httpOptions);
     }
 }

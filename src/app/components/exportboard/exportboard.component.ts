@@ -88,6 +88,16 @@ export class ExportboardComponent {
         return false;
     }
 
+    FindErrorMessage(element: EncargoModel, property: string): string {
+        for(let i = 0; i < element.ValidationErrors.length; i++) {
+            if(element.ValidationErrors[i].PropertyName == property) {
+                return element.ValidationErrors[i].ErrorDescription;
+            }
+        }
+
+        return "";
+    }
+
     splitString(cadena: string, index: number): string[] {
         if(cadena == null) return ["", ""];
         

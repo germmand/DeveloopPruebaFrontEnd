@@ -47,13 +47,20 @@
 
 .mat-table {
     overflow: auto;
-    max-height: 500px;
+    height: 500px;
 }
 
 .error-border {
     border: 2px solid #A40505;
     border-radius: 4px;
+}
+
+.cell-padding {
     padding: 1vh;
+}
+
+.cell-padding > label {
+    white-space: nowrap;
 }
 
 .red-label {

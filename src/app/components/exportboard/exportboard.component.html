@@ -30,11 +30,11 @@
                           <mat-header-cell *matHeaderCellDef> Albaran </mat-header-cell>
                           <mat-cell *matCellDef="let element">
                                 <div (click)="element.EditRow.EditingAlbaran = true;" *ngIf="!element.EditRow.EditingAlbaran">
-                                    <div *ngIf="!HasErrorOnProperty(element, 'Albaran') else errorProperty">
+                                    <div *ngIf="!HasErrorOnProperty(element, 'Albaran') else errorProperty" class="cell-padding">
                                         <label>{{ element.Albaran }}</label>
                                     </div>
                                     <ng-template #errorProperty>
-                                        <div class="error-border" [matTooltip]="FindErrorMessage(element, 'Albaran')" matTooltipPosition="above">
+                                        <div class="error-border cell-padding" [matTooltip]="FindErrorMessage(element, 'Albaran')" matTooltipPosition="above">
                                             <label>
                                                 <label>{{ splitString(element.Albaran, 10)[0] }}<label class="red-label">{{ splitString(element.Albaran, 10)[1] }}</label></label>
                                             </label>
@@ -58,11 +58,11 @@
                             <mat-header-cell *matHeaderCellDef> Destinatario </mat-header-cell>
                             <mat-cell *matCellDef="let element"> 
                                 <div (click)="element.EditRow.EditingDestinatario = true;" *ngIf="!element.EditRow.EditingDestinatario">
-                                    <div *ngIf="!HasErrorOnProperty(element, 'Destinatario') else errorProperty">
+                                    <div *ngIf="!HasErrorOnProperty(element, 'Destinatario') else errorProperty" class="cell-padding">
                                         <label>{{ element.Destinatario }}</label>
                                     </div>
                                     <ng-template #errorProperty>
-                                        <div class="error-border" [matTooltip]="FindErrorMessage(element, 'Destinatario')" matTooltipPosition="above">
+                                        <div class="error-border cell-padding" [matTooltip]="FindErrorMessage(element, 'Destinatario')" matTooltipPosition="above">
                                             <label>
                                                 <label>{{ splitString(element.Destinatario, 28)[0] }}<label class="red-label">{{ splitString(element.Destinatario, 28)[1] }}</label></label>
                                             </label>
@@ -86,11 +86,11 @@
                             <mat-header-cell *matHeaderCellDef> Dirección </mat-header-cell>
                             <mat-cell *matCellDef="let element"> 
                                 <div (click)="element.EditRow.EditingDireccion = true;" *ngIf="!element.EditRow.EditingDireccion">
-                                    <div *ngIf="!HasErrorOnProperty(element, 'Direccion') else errorProperty">
+                                    <div *ngIf="!HasErrorOnProperty(element, 'Direccion') else errorProperty" class="cell-padding">
                                         <label>{{ element.Direccion }}</label>
                                     </div>
                                     <ng-template #errorProperty>
-                                        <div class="error-border" [matTooltip]="FindErrorMessage(element, 'Direccion')" matTooltipPosition="above">
+                                        <div class="error-border cell-padding" [matTooltip]="FindErrorMessage(element, 'Direccion')" matTooltipPosition="above">
                                             <label>
                                                 <label>{{ splitString(element.Direccion, 250)[0] }}<label class="red-label">{{ splitString(element.Direccion, 250)[1] }}</label></label>
                                             </label>
@@ -114,11 +114,11 @@
                             <mat-header-cell *matHeaderCellDef> Población </mat-header-cell>
                             <mat-cell *matCellDef="let element"> 
                                 <div (click)="element.EditRow.EditingPoblacion = true;" *ngIf="!element.EditRow.EditingPoblacion">
-                                    <div *ngIf="!HasErrorOnProperty(element, 'Poblacion') else errorProperty">
+                                    <div *ngIf="!HasErrorOnProperty(element, 'Poblacion') else errorProperty" class="cell-padding">
                                         <label>{{ element.Poblacion }}</label>
                                     </div>
                                     <ng-template #errorProperty>
-                                        <div class="error-border" [matTooltip]="FindErrorMessage(element, 'Poblacion')" matTooltipPosition="above">
+                                        <div class="error-border cell-padding" [matTooltip]="FindErrorMessage(element, 'Poblacion')" matTooltipPosition="above">
                                             <label>
                                                 <label>{{ splitString(element.Poblacion, 10)[0] }}<label class="red-label">{{ splitString(element.Poblacion, 10)[1] }}</label></label>
                                             </label>
@@ -142,11 +142,11 @@
                             <mat-header-cell *matHeaderCellDef> CP </mat-header-cell>
                             <mat-cell *matCellDef="let element"> 
                                 <div (click)="element.EditRow.EditingCP = true;" *ngIf="!element.EditRow.EditingCP">
-                                    <div *ngIf="!HasErrorOnProperty(element, 'CP') else errorProperty">
+                                    <div *ngIf="!HasErrorOnProperty(element, 'CP') else errorProperty" class="cell-padding">
                                         <label>{{ element.CP }}</label>
                                     </div>
                                     <ng-template #errorProperty>
-                                        <div class="error-border" [matTooltip]="FindErrorMessage(element, 'CP')" matTooltipPosition="above">
+                                        <div class="error-border cell-padding" [matTooltip]="FindErrorMessage(element, 'CP')" matTooltipPosition="above">
                                             <label>
                                                 <label>{{ splitString(element.CP, 5)[0] }}<label class="red-label">{{ splitString(element.CP, 5)[1] }}</label></label>
                                             </label>
@@ -170,11 +170,11 @@
                             <mat-header-cell *matHeaderCellDef> Provincia </mat-header-cell>
                             <mat-cell *matCellDef="let element"> 
                                 <div (click)="element.EditRow.EditingProvincia = true;" *ngIf="!element.EditRow.EditingProvincia">
-                                    <div *ngIf="!HasErrorOnProperty(element, 'Provincia') else errorProperty">
+                                    <div *ngIf="!HasErrorOnProperty(element, 'Provincia') else errorProperty" class="cell-padding">
                                         <label>{{ element.Provincia }}</label>
                                     </div>
                                     <ng-template #errorProperty>
-                                        <div class="error-border" [matTooltip]="FindErrorMessage(element, 'Provincia')" matTooltipPosition="above">
+                                        <div class="error-border cell-padding" [matTooltip]="FindErrorMessage(element, 'Provincia')" matTooltipPosition="above">
                                             <label>
                                                 <label>{{ splitString(element.Provincia, 20)[0] }}<label class="red-label">{{ splitString(element.Provincia, 20)[1] }}</label></label>
                                             </label>
@@ -198,11 +198,11 @@
                             <mat-header-cell *matHeaderCellDef> Teléfono </mat-header-cell>
                             <mat-cell *matCellDef="let element"> 
                                 <div (click)="element.EditRow.EditingTelefono = true;" *ngIf="!element.EditRow.EditingTelefono">
-                                    <div *ngIf="!HasErrorOnProperty(element, 'Telefono') else errorProperty">
+                                    <div *ngIf="!HasErrorOnProperty(element, 'Telefono') else errorProperty" class="cell-padding">
                                         <label>{{ element.Telefono }}</label>
                                     </div>
                                     <ng-template #errorProperty>
-                                        <div class="error-border" [matTooltip]="FindErrorMessage(element, 'Telefono')" matTooltipPosition="above">
+                                        <div class="error-border cell-padding" [matTooltip]="FindErrorMessage(element, 'Telefono')" matTooltipPosition="above">
                                             <label>
                                                 <label>{{ splitString(element.Telefono, 10)[0] }}<label class="red-label">{{ splitString(element.Telfono, 10)[1] }}</label></label>
                                             </label>
@@ -226,11 +226,11 @@
                             <mat-header-cell *matHeaderCellDef> Observaciones </mat-header-cell>
                             <mat-cell *matCellDef="let element"> 
                                 <div (click)="element.EditRow.EditingObservaciones = true;" *ngIf="!element.EditRow.EditingObservaciones">
-                                    <div *ngIf="!HasErrorOnProperty(element, 'Observaciones') else errorProperty">
+                                    <div *ngIf="!HasErrorOnProperty(element, 'Observaciones') else errorProperty" class="cell-padding">
                                         <label>{{ element.Observaciones }}</label>
                                     </div>
                                     <ng-template #errorProperty>
-                                        <div class="error-border" [matTooltip]="FindErrorMessage(element, 'Observaciones')" matTooltipPosition="above">
+                                        <div class="error-border cell-padding" [matTooltip]="FindErrorMessage(element, 'Observaciones')" matTooltipPosition="above">
                                             <label>
                                                 <label>{{ splitString(element.Observaciones, 500)[0] }}<label class="red-label">{{ splitString(element.Observaciones, 500)[1] }}</label></label>
                                             </label>
@@ -254,11 +254,11 @@
                             <mat-header-cell *matHeaderCellDef> Fecha </mat-header-cell>
                             <mat-cell *matCellDef="let element"> 
                                 <div (click)="element.EditRow.EditingFecha = true;" *ngIf="!element.EditRow.EditingFecha">
-                                    <div *ngIf="!HasErrorOnProperty(element, 'Fecha') else errorProperty">
+                                    <div *ngIf="!HasErrorOnProperty(element, 'Fecha') else errorProperty" class="cell-padding">
                                         <label>{{ element.Fecha }}</label>
                                     </div>
                                     <ng-template #errorProperty>
-                                        <div class="error-border" [matTooltip]="FindErrorMessage(element, 'Fecha')" matTooltipPosition="above">
+                                        <div class="error-border cell-padding" [matTooltip]="FindErrorMessage(element, 'Fecha')" matTooltipPosition="above">
                                             <label>
                                                 <label class="red-label">{{ element.Fecha }}</label>
                                             </label>

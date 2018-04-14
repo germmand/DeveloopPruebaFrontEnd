@@ -8,6 +8,7 @@ import { EncargoModel } from '../../models/EncargosModel';
 import { SharedDataService } from '../../services/shareddata.service'; 
 import { ValidacionEncargoModel } from '../../models/ValidacionEncargoModel';
 import { EditRowModel } from '../../models/EditRowModel';
+import { DashboardService } from '../../services/dashboard.service';
 
 @Component({
     selector: 'app-exportboard',
@@ -23,6 +24,7 @@ export class ExportboardComponent {
 
     constructor(private router: Router, 
                 private snackBar: MatSnackBar,
+                private dashboardService: DashboardService,
                 private sharedData: SharedDataService<ValidacionEncargoModel[]>) {
         this.gridData = [];
     }
@@ -62,8 +64,6 @@ export class ExportboardComponent {
             incorrects += currentErrors;
         }
 
-        console.log(corrects + " - " + incorrects);
-
         this.correctInputControl.setValue(corrects);
         this.incorrectInputControl.setValue(incorrects);
     }
@@ -83,7 +83,19 @@ export class ExportboardComponent {
     }
 
     OnRowChange(element: EncargoModel) {
-        // Acá se hará la comprobación al backend.
+        this.dashboardService.checkEncargoModel(element).subscribe(response => {
+            let updatedEncargo: EncargoModel = response["Encargo"];
+            updatedEncargo.ValidationErrors = response["ValidationErrors"];
+
+            updatedEncargo.EditRow = new EditRowModel();
+            updatedEncargo.RowIndex = element.RowIndex;
+
+            this.gridData[updatedEncargo.RowIndex] = updatedEncargo;
+
+            this.computeCorrectsAndIncorrects();
+        }, errorResponse => {
+            console.log("Error: " + errorResponse);
+        });
     }
 
     HasErrorOnProperty(element: EncargoModel, property: string) {

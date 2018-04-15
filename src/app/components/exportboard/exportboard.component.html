@@ -1,3 +1,5 @@
+<mat-progress-bar [mode]="progressBarMode" [value]="progressBarValue" class="top-progress-bar"></mat-progress-bar>
+
 <div class="container">
     <div class="upper-card">
         <mat-card>
@@ -13,7 +15,7 @@
                         </mat-form-field> 
                     </div>
                     <div>
-                        <button mat-raised-button color="primary" class="exportButton" (click)="OnExportData($event)">Exportar</button>
+                        <button mat-raised-button color="primary" class="exportButton" (click)="OnExportData($event)" [disabled]="processingRequest">Exportar</button>
                     </div>
                 </div>
             </mat-card-content>

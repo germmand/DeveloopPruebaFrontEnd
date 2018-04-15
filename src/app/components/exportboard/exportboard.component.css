@@ -47,7 +47,7 @@
 
 .mat-table {
     overflow: auto;
-    height: 500px;
+    max-height: 500px;
 }
 
 .error-border {
@@ -70,4 +70,11 @@
 mat-cell, mat-header-cell {
     margin-left: 15px;
     margin-right: 15px;
+}
+
+.top-progress-bar {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
 }

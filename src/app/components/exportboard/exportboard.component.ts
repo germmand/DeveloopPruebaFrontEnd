@@ -19,6 +19,9 @@ export class ExportboardComponent {
     private correctInputControl : FormControl;
     private incorrectInputControl : FormControl;
     private tableColumnsNames: string[];
+    private processingRequest: boolean;
+    private progressBarMode: string;
+    private progressBarValue: number;
 
     private gridData: EncargoModel[];
 
@@ -32,7 +35,9 @@ export class ExportboardComponent {
     ngOnInit() {
         this.correctInputControl = new FormControl(0);
         this.incorrectInputControl = new FormControl(0);
-
+        this.processingRequest = false;
+        this.progressBarMode = "determinate";
+        this.progressBarValue = 0;
         this.tableColumnsNames = ["albaran", "destinatario", "direccion", "poblacion", "cp", "provincia", "telefono", "observaciones", "fecha"];
         
         let excelData: ValidacionEncargoModel[] = this.sharedData.fetchData();
@@ -79,6 +84,56 @@ export class ExportboardComponent {
             });
 
             return;
+        } else if (this.gridData.length == 0) {
+            this.snackBar.open("No hay entidades que exportar.", "Entendido.", {
+                duration: 2500
+            });
+
+            return;
+        }
+
+        this.processingRequest = true;
+        let successCounter = 0;
+        this.progressBarMode = "indeterminate";
+        
+        for(let i = 0; i < this.gridData.length; i++) {          
+            this.dashboardService.createEncargoEntity(this.gridData[i]).subscribe(response => {
+                successCounter += 1;
+                this.progressBarValue += 100 / this.gridData.length;
+
+                if(i == (this.gridData.length - 1)) {
+                    this.processingRequest = false;
+                    this.progressBarMode = "determinate";
+                }
+
+                if(successCounter == this.gridData.length) {
+                    this.snackBar.open("Todas las entidades se han exportado a la base de datos.", "Entendido.", {
+                        duration: 3500
+                    });
+
+                    this.gridData = [];
+                    this.computeCorrectsAndIncorrects();
+                }
+            }, errorResponse => {
+                switch(errorResponse.status) {
+                    case 400: 
+                        this.snackBar.open(errorResponse.error.Message, "Entendido.", {
+                            duration: 3500
+                        });
+                        break;
+                    case 0:
+                        // Éste caso se ejecuta cuando el servidor está apagado.
+                        this.snackBar.open("Woops! Un error ha ocurrido. No te preocupes, estamos trabajando en ello.", "Entendido.", {
+                            duration: 3500
+                        });
+                        break;
+                }
+
+                if(i == (this.gridData.length - 1)) {
+                    this.processingRequest = false;
+                    this.progressBarMode = "determinate";
+                }
+            });
         }
     }
 

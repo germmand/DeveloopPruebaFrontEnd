@@ -84,14 +84,12 @@ export class ExportboardComponent {
 
     OnRowChange(element: EncargoModel) {
         this.dashboardService.checkEncargoModel(element).subscribe(response => {
-            let updatedEncargo: EncargoModel = response["Encargo"];
-            updatedEncargo.ValidationErrors = response["ValidationErrors"];
-
-            updatedEncargo.EditRow = new EditRowModel();
-            updatedEncargo.RowIndex = element.RowIndex;
-
-            this.gridData[updatedEncargo.RowIndex] = updatedEncargo;
-
+            // La razón por la que sólo actualizamos el arreglo de ValidationErrors del elemento
+            // es porque existe "Two way binding" con el input, por lo que una vez se cambie en la fila
+            // se cambia en el arreglo del DataSource, siendo éste mismo el elemento que se valida en el servidor de igual forma.
+            // Por lo que sería innecesario recrear otro elemento.
+            // Por ende, sólo es necesario actualizar su arreglo de "ValidationErrors" con la respuesta del servidor y recalcular los errores totales.
+            element.ValidationErrors = response["ValidationErrors"];
             this.computeCorrectsAndIncorrects();
         }, errorResponse => {
             console.log("Error: " + errorResponse);

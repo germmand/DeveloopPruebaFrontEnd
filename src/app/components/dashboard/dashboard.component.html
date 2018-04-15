@@ -11,7 +11,7 @@
                     <mat-form-field style="flex: 4;" class="full-width">
                         <input matInput placeholder="Enlace del Fichero" type="text" formControlName="inputFilePath" (keydown)="OnKeyPress($event)"/>
                     </mat-form-field>
-                    <input id="inputFile" type="file" class="hide" (change)="OnFileSelected($event.target.files)"/>
+                    <input id="inputFile" type="file" class="hide" (change)="OnFileSelected($event.target.files)" accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel"/>
                     <button id="pickFileButton" style="flex: 1; margin-left: 2%;" class="full-width" mat-raised-button (click)="OnSelectFile($event)">Fichero</button>
                 </div>
                 <mat-form-field class="full-width">

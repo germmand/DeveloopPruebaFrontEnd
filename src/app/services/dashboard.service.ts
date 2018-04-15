@@ -35,4 +35,15 @@ export class DashboardService {
 
         return this.http.post(WebApiData.getFullPath("api/Encargos/Check"), encargoModel, httpOptions);
     }
+
+    createEncargoEntity(encargoModel: EncargoModel): Observable<Object> {
+        const httpOptions = {
+            headers: new HttpHeaders({
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            })
+        };
+
+        return this.http.post(WebApiData.getFullPath("api/Encargos"), encargoModel, httpOptions);
+    }
 }
